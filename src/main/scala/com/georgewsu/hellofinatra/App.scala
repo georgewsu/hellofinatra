@@ -1,7 +1,13 @@
 package com.georgewsu.hellofinatra
 
+import scala.concurrent.duration._
+
 import com.twitter.finatra._
 import com.twitter.finatra.ContentType._
+
+import akka.actor.Actor
+import akka.actor.ActorSystem
+import akka.actor.Props
 
 object App extends FinatraServer {
 
@@ -218,6 +224,27 @@ object App extends FinatraServer {
     }
 
   }
+
+  println("starting")
+  
+  class TickActor extends Actor {
+    def receive = {
+      case _ => {
+        println("tick")
+      }
+    }
+  }
+
+  val system = ActorSystem("System")
+  val tickActor = system.actorOf(Props(classOf[TickActor]))
+
+  //Use system's dispatcher as ExecutionContext
+  import system.dispatcher
+
+  system.scheduler.schedule(0.seconds,
+    5.seconds,
+    tickActor,
+    "tick")
 
   register(new ExampleApp())
 }
