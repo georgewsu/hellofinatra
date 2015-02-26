@@ -1,36 +1,28 @@
 # hellofinatra
 
-Finatra requires either [maven](http://maven.apache.org/) or [sbt](http://www.scala-sbt.org/release/docs/Getting-Started/Setup.html) to build and run your app.
+Requires [sbt](http://www.scala-sbt.org/release/docs/Getting-Started/Setup.html) to build and run the app.
 
 ## SBT Instructions
 
-### Runs your app on port 7070
+### Runs the app on port 7070
 
     sbt run
+
+### Runs the app on port 8080
+
+    sbt -Dcom.twitter.finatra.config.port=:8080 run
 
 ### Testing
 
     sbt test
 
+### Stage
+
+    sbt stage
+
 ### Packaging (fatjar)
 
     sbt assembly
-
-
-## Maven Instructions
-
-### Runs your app on port 7070
-
-    mvn scala:run
-
-### Testing
-
-    mvn test
-
-### Packaging (fatjar)
-
-    mvn package
-
 
 ## Heroku
 
@@ -39,6 +31,10 @@ Finatra requires either [maven](http://maven.apache.org/) or [sbt](http://www.sc
     heroku create
     git push heroku master
 
-### To run anywhere else
+### To run anywhere else (fatjar)
 
     java -jar target/*-0.0.1-SNAPSHOT-jar-with-dependencies.jar
+
+### To run fatjar on port 8080
+
+    java -Dcom.twitter.finatra.config.port=:8080 -jar target/*-0.0.1-SNAPSHOT-jar-with-dependencies.jar

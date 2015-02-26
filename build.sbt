@@ -1,3 +1,5 @@
+import NativePackagerKeys._
+
 name := "hellofinatra"
 
 version := "0.0.1-SNAPSHOT"
@@ -10,3 +12,5 @@ libraryDependencies ++= Seq(
 
 resolvers +=
   "Twitter" at "http://maven.twttr.com"
+
+packageArchetype.java_application
