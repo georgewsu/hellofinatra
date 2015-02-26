@@ -8,9 +8,9 @@ import com.georgewsu.hellofinatra._
 
 class AppSpec extends FlatSpecHelper {
 
-  val app = new App.ExampleApp
+  val controller = new MainController
   override val server = new FinatraServer
-  server.register(app)
+  server.register(controller)
 
   
   "GET /notfound" should "respond 404" in {
