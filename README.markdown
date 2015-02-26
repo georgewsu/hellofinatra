@@ -33,8 +33,8 @@ Requires [sbt](http://www.scala-sbt.org/release/docs/Getting-Started/Setup.html)
 
 ### To run anywhere else (fatjar)
 
-    java -jar target/*-0.0.1-SNAPSHOT-jar-with-dependencies.jar
+    java -jar target/scala-2.10/hellofinatra-assembly-0.0.1-SNAPSHOT.jar
 
 ### To run fatjar on port 8080
 
-    java -Dcom.twitter.finatra.config.port=:8080 -jar target/*-0.0.1-SNAPSHOT-jar-with-dependencies.jar
+    java -Dcom.twitter.finatra.config.port=:8080 -jar target/scala-2.10/hellofinatra-assembly-0.0.1-SNAPSHOT.jar

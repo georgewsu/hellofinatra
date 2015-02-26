@@ -2,11 +2,11 @@ package com.georgewsu.hellofinatra
 
 import org.scalatest.FlatSpec
 import org.scalatest.matchers.ShouldMatchers
-import com.twitter.finatra.test._
-import com.twitter.finatra.FinatraServer
-import com.georgewsu.hellofinatra._
 
-class AppSpec extends FlatSpecHelper {
+import com.twitter.finatra.FinatraServer
+import com.twitter.finatra.test.SpecHelper
+
+class AppSpec extends FlatSpec with ShouldMatchers with SpecHelper {
 
   val controller = new MainController
   override val server = new FinatraServer
